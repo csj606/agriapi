@@ -24,13 +24,20 @@ func queryPlantingSeason() crops {
 		defer db.Close()
 		month := time.Time.Month(time.Now())
 		rows, err := db.Query(sqlQuery, month)
+		crop := make([]string, 0)
 		if err != nil {
 			log.Fatal(err)
 		}
 		defer rows.Close()
 
 		for rows.Next() {
-
+			var crop_name string
+			rows.Scan(&crop_name)
+			crop = append(crop, crop_name)
+		}
+		return crops{
+			Time:    time.Now().String(),
+			Produce: crop,
 		}
 	}
 	return result
