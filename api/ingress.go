@@ -3,6 +3,7 @@ package api
 import (
 	"context"
 	"log"
+	"os"
 
 	"github.com/gin-gonic/gin"
 	"github.com/joho/godotenv"
@@ -33,8 +34,13 @@ func main() {
 	// 	log.Fatal(err)
 	// }
 	// client :=
+
 	context.Background()
 	router := gin.Default()
+	_, err = os.Stat("agriapi.db")
+	if os.IsNotExist(err) {
+		CreateDatabase()
+	}
 	router.GET("/in-season", getInSeason)
 	router.GET("/planting-periods", getPlantingSeason)
 	router.GET("/ping", online)
