@@ -19,7 +19,7 @@ func queryInSeason() crops {
 	sqlQuery := `
 	SELECT crop_name 
 	FROM season
-	WHERE month >= (?) AND end_month <= (?)
+	WHERE start_month >= (?) AND end_month <= (?)
 	`
 	if os.Getenv("CLOUD_ENV") != "true" {
 		db, err := sql.Open("sqlite3", "./agriapi.db")
@@ -28,7 +28,7 @@ func queryInSeason() crops {
 		}
 		defer db.Close()
 		month := time.Time.Month(time.Now())
-		rows, err := db.Query(sqlQuery, month)
+		rows, err := db.Query(sqlQuery, month, month)
 		crop := make([]string, 0)
 		if err != nil {
 			log.Fatal(err)
