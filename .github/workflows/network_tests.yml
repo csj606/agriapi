@@ -20,6 +20,11 @@ jobs:
       uses: actions/setup-go@v4
       with:
         go-version: '1.24'
+    
+    - name: Create .env file for server
+      working-directory: ./api
+      run: |
+        echo "CLOUD_ENV=false" >> .env
 
     - name: Build
       working-directory: ./api
