@@ -23,17 +23,11 @@ func getPlantingSeason(c *gin.Context) {
 	c.IndentedJSON(200, response)
 }
 
-func main() {
+func setUpServer() *gin.Engine {
 	err := godotenv.Load()
 	if err != nil {
 		log.Fatal("Error loading .env file")
 	}
-
-	// cfg, err := config.LoadDefaultConfig(context.TODO())
-	// if err != nil {
-	// 	log.Fatal(err)
-	// }
-	// client :=
 
 	context.Background()
 	router := gin.Default()
@@ -41,8 +35,14 @@ func main() {
 	if os.IsNotExist(err) {
 		CreateDatabase()
 	}
+
 	router.GET("/in-season", getInSeason)
 	router.GET("/planting-periods", getPlantingSeason)
 	router.GET("/ping", online)
+	return router
+}
+
+func main() {
+	router := setUpServer()
 	router.Run("localhost:9876")
 }
