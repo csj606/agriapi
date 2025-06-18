@@ -15,9 +15,9 @@ You could choose to locally deploy the service using a Docker container, or depl
 
 ### Stack
 
-Router - Written in Golang
-IaC + Cloud Service - AWS and Terraform
-Testing Libraries - testify
+- Router - Written in Golang
+- IaC + Cloud Service - AWS and Terraform
+- Testing Libraries - testify
 
 The application is also containerized using Docker and a CI pipeline has been made in GitHub Actions.
 
