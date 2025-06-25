@@ -21,6 +21,15 @@ You could choose to locally deploy the service using a Docker container, or depl
 
 The application is also containerized using Docker and a CI pipeline has been made in GitHub Actions.
 
+### Important Notes
+
+The Terraform script is written assuming a private SSH key exists in your cloud environment named cloud-private-key and also exists in your saved SSH keys. The Terraform script exists mostly for experimental purposes. It uses a provisioner which typically are not recommended for usage in a production environment.
+
 ### Roadmap
 
-Currently, I am working on the Terraform script to deploy cloud infrastructure to AWS. However, the deployment local option has been completed. I also hope to add performance and security testing to the CI pipeline.
+The MVP version for this project has been completed. I may come back and implement the following:
+1. A more complex API with data from more states, such as Kansas and Nebraska
+2. Add to the Terraform script to provide VPC + security rules and other AWS components.
+
+
+
