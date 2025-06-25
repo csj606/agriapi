@@ -31,7 +31,7 @@ resource "aws_instance" "agriapi" {
     provisioner "remote-exec" {
         inline = [
             "sudo yum update",
-            "sudo yum install golang-go git -y",
+            "sudo yum install git -y",
             "git clone https://github.com/csj606/agriapi",
             "cd api",
             "nohup go run ingress.go &"
