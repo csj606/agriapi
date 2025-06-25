@@ -9,9 +9,9 @@ You could choose to locally deploy the service using a Docker container, or depl
 
 ### Endpoints
 
-/ping - mainly exists as a testing endpoint for development purposes
-/in-season - returns a list of crops which are in season at this specific time
-/planting - returns a list of crops which are currently in their planting windows
+- /ping - mainly exists as a testing endpoint for development purposes
+- /in-season - returns a list of crops which are in season at this specific time
+- /planting - returns a list of crops which are currently in their planting windows
 
 ### Stack
 
